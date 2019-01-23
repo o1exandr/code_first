@@ -39,5 +39,26 @@ namespace code_first
             AddForm addForm = new AddForm();
             addForm.ShowDialog();
         }
+
+        private void btUpdate_Click(object sender, EventArgs e)
+        {
+
+            if  (dgvProducts.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dgvProducts.SelectedCells[0].RowIndex;
+
+                DataGridViewRow selectedRow = dgvProducts.Rows[selectedrowindex];
+
+                Product product = new Product();
+                product.Id = Convert.ToInt32(selectedRow.Cells["ColumnId"].Value);
+                product.Name = Convert.ToString(selectedRow.Cells["ColumnName"].Value);
+                product.Price = Convert.ToSingle(selectedRow.Cells["ColumnPrice"].Value);
+                product.Quantity = Convert.ToInt32(selectedRow.Cells["ColumnQty"].Value);
+
+                EditForm editForm = new EditForm(product);
+                editForm.ShowDialog();
+            }
+ 
+        }
     }
 }

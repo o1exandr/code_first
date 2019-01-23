@@ -53,7 +53,9 @@
             this.ColumnPrice,
             this.ColumnQty});
             this.dgvProducts.Location = new System.Drawing.Point(12, 60);
+            this.dgvProducts.MultiSelect = false;
             this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.ReadOnly = true;
             this.dgvProducts.Size = new System.Drawing.Size(650, 347);
             this.dgvProducts.TabIndex = 0;
             // 
@@ -61,6 +63,7 @@
             // 
             this.ColumnId.HeaderText = "Id";
             this.ColumnId.Name = "ColumnId";
+            this.ColumnId.ReadOnly = true;
             this.ColumnId.Width = 30;
             // 
             // ColumnName
@@ -68,16 +71,19 @@
             this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnName.HeaderText = "Назва товару";
             this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
             // 
             // ColumnPrice
             // 
             this.ColumnPrice.HeaderText = "Ціна за одиницю";
             this.ColumnPrice.Name = "ColumnPrice";
+            this.ColumnPrice.ReadOnly = true;
             // 
             // ColumnQty
             // 
             this.ColumnQty.HeaderText = "Кількість товару";
             this.ColumnQty.Name = "ColumnQty";
+            this.ColumnQty.ReadOnly = true;
             // 
             // btRead
             // 
@@ -107,6 +113,7 @@
             this.btUpdate.TabIndex = 3;
             this.btUpdate.Text = "Редагувати";
             this.btUpdate.UseVisualStyleBackColor = true;
+            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
             // btDelete
             // 
