@@ -18,6 +18,7 @@ namespace code_first
             InitializeComponent();
         }
 
+        // зчитуємо внесені дані користувачем і додаємо в базу
         private void btInsert_Click(object sender, EventArgs e)
         {
 
@@ -37,6 +38,7 @@ namespace code_first
                 }
 
                 MessageBox.Show($"Товар {product.Name} додано");
+                this.Close();
             }
             catch (Exception ex)
             {

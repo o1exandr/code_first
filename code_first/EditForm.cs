@@ -19,6 +19,7 @@ namespace code_first
             InitializeComponent();
         }
 
+        // передаємо через конструктор обєкт обраний користувачем
         public EditForm(Product product)
         {
             InitializeComponent();
@@ -28,11 +29,13 @@ namespace code_first
             txtQty.Text = Convert.ToString(product.Quantity);
         }
 
+        // оновлення запису
         private void btUpdate_Click(object sender, EventArgs e)
         {
 
             try
             {
+                // зчитуємо дані введені користувачем
                 int qty = Convert.ToInt32(txtQty.Text);
                 float price = Convert.ToSingle(txtPrice.Text);
                 Product product = new Product();
@@ -40,6 +43,7 @@ namespace code_first
                 product.Price = price;
                 product.Quantity = qty;
 
+                // оновлюємо
                 using (EFContext context = new EFContext())
                 {
                     var result = context.Products.SingleOrDefault(b => b.Id == Id);
@@ -53,11 +57,13 @@ namespace code_first
                 }
 
                 MessageBox.Show($"Товар {product.Name} оновлено");
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Помилка оновлення даних\n\t{ex.Message}", ex.Message);
             }
+            
         }
     }
 }
